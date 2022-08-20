@@ -17,13 +17,43 @@ let countdown;
 
 //Questions and Options array
 
-const quizArray = [{id: "0", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" } ,
-{id: "1", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
-{id: "2", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
-{id: "3", questions:  "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
-{id: "4", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
-{id: "5", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
+const quizArray = [{id: "0", questions:"Question One: " , options:["A","B","C"], correct: "C" },
+{id: "1", questions:"Question Two: ",options:["A","B","C"], correct:"C"},
+{id: "2", questions:"Question Three",options:["A","B","C"], correct:"C"},
+{id: "3", questions:"Question Four: ",options:["A","B","C"], correct:"C"},
+{id: "4", questions:"Question Five: ",options:["A","B","C"], correct:"C"},
 ];
+//Restart game
+restart.addEventListener("click", () => {
+    initial();
+    displayContainer.classList.remove("hide");
+    scorContainer.classList.add("hide";)
+});
+
+//next button
+nextBtn.addEventListener("click", (displayNext = () =>
+   {
+    // increment 
+    questionCount += 1;
+
+    if(questionCount == quizArray.length){
+//hide question and display score
+        displayContainer.classList.add("hide");
+        scorContainer.classList.remove("hide");
+//user score
+        userScore.innerHTML = "Your Score : " + scoreCount + "out of  + questionCount;
+         } else {
+//display count
+            countOfQuestions.innerHTML =
+                questionCount + 1 + " of " + quizArray.length + "Question";
+//display quiz         
+                quizDisplay(questionCount);
+                count = 11;
+                clearInterval(countdown);
+                timerDisplay();
+         }
+  
+}));
 
 //timer
 const timerDisplay = () => {
@@ -80,9 +110,8 @@ function checker(userOption){
     let question = document.getElementsByClassName("container_mid")
     [questionCount];
     let options = question.querySelectorAll("option-div");
-// if user clicked correct anser 
-    if(userSolution === quizArray[questionCount].correct)
-    {
+// if user clicked correct answer stored
+    if (userSolution === quizArray[questionCount].correct) {
         userOption.classList.add("correct");
         scoreCount++;
     }
@@ -92,10 +121,16 @@ function checker(userOption){
             if(element.innerHTML == quizArray[questionCount].correct){
                 element.classList.add("correct");
             }
-        })
+        });
     }
-
+// clear interval countdown
+clearInterval(countdown);
+//disable options
+options.forEach((element) => {
+    element.disabled =true;
+ });
 }
+
 
 
 
