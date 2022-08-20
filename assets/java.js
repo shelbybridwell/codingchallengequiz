@@ -18,5 +18,36 @@ let countdown;
 
 //Questions and Options array
 
-const quizArray = [{id: "0", questions: ;options[], correct: } ,
-]
+const quizArray = [{id: "0", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" } ,
+{id: "1", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
+{id: "2", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
+{id: "3", questions:  "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
+{id: "4", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
+{id: "5", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },];
+
+//Quiz
+function quizCreator(){
+    //randomizes questions
+    quizArray.sort(() => Math.random() - 0.5);
+    //generate quiz
+    for(let i of quizArray) {
+      i.options.sort(() => Math.random() -0.5);
+    //quiz card creation
+    let div =document.createElement("div");
+    div.classList.add("container-mid");
+    //question number
+    couuntOfQuestions.innerHTML = 1+ "of"+ quizArray.length + "Question";
+    //question
+    let question_Div = document.createElement("p");
+    question_Div.classList.add("question");
+    question_Div.innerHTML = i.questions;
+    div.appendChild(question_DIV);
+    //options
+    div.innerHTML += '
+    <button class="options-div" onclick="checker(this)">${i.options[0]}</button>
+    <button class="options-div" onclick="checker(this)">${i.options[1]}</button>
+    <button class="options-div" onclick="checker(this)">${i.options[2]}</button>
+    ';
+    
+    }
+}
