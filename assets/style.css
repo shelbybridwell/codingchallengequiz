@@ -7,8 +7,8 @@
 body {
     background-color: #0a69ed;
 }
-.start-screen,
-.score-container {
+#start-screen,
+#score-container {
     position: absolute;
     top: 0;
     width: 100%;
@@ -18,18 +18,18 @@ body {
     align-items: center;
     justify-content: center;
 }
-.button{
+#button{
     border: none;
     outline: none;
     cursor: pointer;
 }
-.start-button, 
-.restart {
+#start-button, 
+#restart {
     font-size: 1.3em;
     padding:0.5em 1.8em;
     border-radius: 0.2em;
 }
-.restart {
+#restart {
     margin-top: 0.9em;
 }
 .display-container {
@@ -61,11 +61,11 @@ body {
     justify-content: space-between;
     padding: 0.7em 1.8em;
 }
-.questions {
+#questions {
     margin-bottom: 1.25em ;
     font-weight: 600 ;
 }
-#option-div {
+.option-div {
     font-weight: 0.9em;
     width: 100%;
     padding: 1em;
@@ -76,7 +76,7 @@ body {
     border: 1px solid #c0bfd2;
     border-radius: 0.3em;
 }
-#options-div:disabled {
+.options-div:disabled {
     color: black;
     cursor: not-allowed;
 }
