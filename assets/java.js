@@ -18,11 +18,24 @@ let countdown;
 
 //Questions and Options array
 
-const quizArray = [{id: "0", questions:"Question One: " , options:["A","B","C"], correct: "C" },
-{id: "1", questions:"Question Two: ",options:["A","B","C"], correct:"C"},
-{id: "2", questions:"Question Three",options:["A","B","C"], correct:"C"},
-{id: "3", questions:"Question Four: ",options:["A","B","C"], correct:"C"},
-{id: "4", questions:"Question Five: ",options:["A","B","C"], correct:"C"},
+const quizArray = [{
+id: "0", 
+question: "Question One: ",
+options:["A","B","C","D"], 
+correct: "D"
+},
+{
+id: "1", 
+question: "Question Two: ",
+options:["A","B","C","D"], 
+correct:"B"
+},
+{
+id: "2", 
+question: "Question Three",
+options:["A","B","C", "D"], 
+correct:"A"
+},
 ];
 //Restart game
 restart.addEventListener("click", () => {
@@ -30,7 +43,6 @@ restart.addEventListener("click", () => {
     displayContainer.classList.remove("hide");
     scoreContainer.classList.add("hide");
 });
-
 //next button
 nextBtn.addEventListener("click", (displayNext = () =>
    {
@@ -40,7 +52,7 @@ nextBtn.addEventListener("click", (displayNext = () =>
     if(questionCount == quizArray.length){
 //hide question and display score
         displayContainer.classList.add("hide");
-        scorContainer.classList.remove("hide");
+        scoreContainer.classList.remove("hide");
 //user score
         userScore.innerHTML = "Your Score : " + scoreCount + "out of "  + questionCount;
          } else {
@@ -55,7 +67,6 @@ nextBtn.addEventListener("click", (displayNext = () =>
          }
   
 }));
-
 //timer
 const timerDisplay = () => {
     countdown = setInterval(() => {
@@ -78,23 +89,23 @@ function quizDisplay(questionCount) {
     //display current question card
     quizCards[questionCount].classList.remove("hide");
 }
-
 //Quiz Creation
 function quizCreator() {
     //randomizes questions
     quizArray.sort(() => Math.random() - 0.5);
     //generate quiz
     for (let i of quizArray) {
+    //random sort
       i.options.sort(() => Math.random() -0.5);
     //quiz card creation
-    let div =document.createElement("div");
-    div.classList.add("container_mid", "hide");
+    let div = document.createElement("div");
+    div.classList.add("container-mid", "hide");
     //question number
-    couuntOfQuestions.innerHTML = 1 + " of " + quizArray.length + " Question ";
+    countOfQuestions.innerHTML = 1 + " of " + quizArray.length + " Question ";
     //question
     let question_Div = document.createElement("p");
     question_Div.classList.add("question");
-    question_Div.innerHTML = i.questions;
+    question_Div.innerHTML = i.question;
     div.appendChild(question_DIV);
     //options
     div.innerHTML += `
@@ -137,10 +148,6 @@ options.forEach((element) => {
     element.disabled =true;
  });
 }
-
-
-
-
 //initial setup 
 function initial(){
     quizArray.innerHTML = "";
@@ -152,8 +159,7 @@ function initial(){
     quizCreator();
     quizContainer(questionCount);
 }
-
-//when star button is clicked
+//when start button is clicked
 startButton.addEventListener("click", () =>{
     startScreen.classList.add("hide");
     displayContainer.classList.remove("hide");
@@ -161,6 +167,6 @@ startButton.addEventListener("click", () =>{
 })
 //hide quiz and display start screen 
 window.onload = () => {
-    startScreen.classList.remove("hide");
-    displayContainer.classList.add("hide");
+    startScreen.classList.add("hide");
+    displayContainer.classList.remove("hide");
 };

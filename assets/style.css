@@ -65,7 +65,7 @@ body {
     margin-bottom: 1.25em ;
     font-weight: 600 ;
 }
-.option-div {
+#option-div {
     font-weight: 0.9em;
     width: 100%;
     padding: 1em;
@@ -76,18 +76,18 @@ body {
     border: 1px solid #c0bfd2;
     border-radius: 0.3em;
 }
-.options-div:disabled {
+#options-div:disabled {
     color: black;
     cursor: not-allowed;
 }
-.next-button {
+#next-button {
     font-size: 1em;
     margin-top: 1.5em;
     background-color: #0a69ed;
     color:#ffffff;
     padding: 0.7em 1.8em;
     border-radius: 0.3em;
-    float: right;
+    float: left;
 }
 .hide {
     display: none;
@@ -97,12 +97,12 @@ body {
     color:  red;
     border-color: red;
 }
-.correct { 
-    background-color: #e1f5fe;
-    color: greenyellow;
-    border-color: greenyellow;
+.correct{
+    background-color: rgba(0, 128, 0, 0.284);
+    color: rgb(125, 190, 28);
+    border-color: rgb(185, 228, 121);
 }
-.user-score { 
+#user-score { 
     font-size: 1.5em;
     color: #ffffff;
 }
