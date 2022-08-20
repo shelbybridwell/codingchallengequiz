@@ -79,24 +79,24 @@ const quizDisplay = (questionCount) => {
 };
 
 //Quiz Creation
-function quizCreator(){
+function quizCreator() {
     //randomizes questions
     quizArray.sort(() => Math.random() - 0.5);
     //generate quiz
-    for(let i of quizArray) {
+    for (let i of quizArray) {
       i.options.sort(() => Math.random() -0.5);
     //quiz card creation
     let div =document.createElement("div");
     div.classList.add("container_mid", "hide");
     //question number
-    couuntOfQuestions.innerHTML = 1+ " of "+ quizArray.length + " Question ";
+    couuntOfQuestions.innerHTML = 1 + " of " + quizArray.length + " Question ";
     //question
     let question_Div = document.createElement("p");
     question_Div.classList.add("question");
     question_Div.innerHTML = i.questions;
     div.appendChild(question_DIV);
     //options
-    div.innerHTML += ``
+    div.innerHTML += `
     <button class = "options-div" onclick ="checker(this)
     ">${i.options[0]}</button> 
     <button class = "options-div" onclick ="checker(this)
@@ -109,9 +109,15 @@ function quizCreator(){
     quizContainer.appendChild(div);
     }
 }
+// hide quiz display start
+window.onload = () => {
+    startScreen.classList.remove("hide");
+    displayContainer.classList.add("hide");
+
+}
 //checher function to check if option is correct
 function checker(userOption){
-    let userSolution =userOption.innerText;
+    let userSolution = userOption.innerText;
     let question = document.getElementsByClassName("container_mid")
     [questionCount];
     let options = question.querySelectorAll("option-div");
