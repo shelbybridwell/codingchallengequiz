@@ -96,11 +96,16 @@ function quizCreator(){
     question_Div.innerHTML = i.questions;
     div.appendChild(question_DIV);
     //options
-    div.innerHTML += '
-    <button class="options-div" onclick="checker(this)">${i.options[0]}</button>
-    <button class="options-div" onclick="checker(this)">${i.options[1]}</button>
-    <button class="options-div" onclick="checker(this)">${i.options[2]}</button>
-    ';
+    div.innerHTML += ``
+    <button class = "options-div" onclick ="checker(this)
+    ">${i.options[0]}</button> 
+    <button class = "options-div" onclick ="checker(this)
+    ">${i.options[1]}</button>
+    <button class = "options-div" onclick="checker(this)
+    ">${i.options[2]}</button>
+    <button class = "options-div" onclick="checker(this)
+    ">${i.options[3]}</button>
+    `;
     quizContainer.appendChild(div);
     }
 }
