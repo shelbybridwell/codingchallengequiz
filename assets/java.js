@@ -27,7 +27,7 @@ const quizArray = [{id: "0", questions:"Question One: " , options:["A","B","C"],
 restart.addEventListener("click", () => {
     initial();
     displayContainer.classList.remove("hide");
-    scorContainer.classList.add("hide";)
+    scorContainer.classList.add("hide");
 });
 
 //next button
@@ -41,7 +41,7 @@ nextBtn.addEventListener("click", (displayNext = () =>
         displayContainer.classList.add("hide");
         scorContainer.classList.remove("hide");
 //user score
-        userScore.innerHTML = "Your Score : " + scoreCount + "out of  + questionCount;
+        userScore.innerHTML = "Your Score : " + scoreCount + "out of "  + questionCount;
          } else {
 //display count
             countOfQuestions.innerHTML =
@@ -97,14 +97,10 @@ function quizCreator() {
     div.appendChild(question_DIV);
     //options
     div.innerHTML += `
-    <button class = "options-div" onclick ="checker(this)
-    ">${i.options[0]}</button> 
-    <button class = "options-div" onclick ="checker(this)
-    ">${i.options[1]}</button>
-    <button class = "options-div" onclick="checker(this)
-    ">${i.options[2]}</button>
-    <button class = "options-div" onclick="checker(this)
-    ">${i.options[3]}</button>
+    <button class = "options-div" onclick = "checker(this)">${i.options[0]}</button> 
+    <button class = "options-div" onclick = "checker(this)">${i.options[1]}</button>
+    <button class = "options-div" onclick = "checker(this)">${i.options[2]}</button>
+    <button class = "options-div" onclick = "checker(this)">${i.options[3]}</button>
     `;
     quizContainer.appendChild(div);
     }
@@ -113,8 +109,7 @@ function quizCreator() {
 window.onload = () => {
     startScreen.classList.remove("hide");
     displayContainer.classList.add("hide");
-
-}
+};
 //checher function to check if option is correct
 function checker(userOption){
     let userSolution = userOption.innerText;
