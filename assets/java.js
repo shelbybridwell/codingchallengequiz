@@ -1,6 +1,5 @@
 
-
-const quizDisplay = document.getElementById("display-container");
+//references
 let timeLeft = document.querySelector(".time-left");
 let quizContainer = document.getElementById("container");
 let nextBtn = document.getElementById("next-button");
@@ -23,9 +22,33 @@ const quizArray = [{id: "0", questions: "Question One: ", "Question Two: ","Ques
 {id: "2", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
 {id: "3", questions:  "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
 {id: "4", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
-{id: "5", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },];
+{id: "5", questions: "Question One: ", "Question Two: ","Question Three"; options["A","B","C"], correct: "C" },
+];
 
-//Quiz
+//timer
+const timerDisplay = () => {
+    countdown = setInterval(() => {
+        count--;
+        timeLeft.innerHTML = '${count}s';
+        if (count == 0) {
+            clearInterval(countdown);
+            displayNext();
+        }
+
+    }, 1000);
+};
+//Display Quiz
+const quizDisplay = (questionCount) => {
+    let quizCards = document.querySelectorAll("container_mid");
+    //hide other cards
+    quizCards.forEach((card) => {
+        card.classList.add("hide");
+    });
+//display current question card
+    quizCards[questionCount].classList.remove("hide");
+};
+
+//Quiz Creation
 function quizCreator(){
     //randomizes questions
     quizArray.sort(() => Math.random() - 0.5);
@@ -34,9 +57,9 @@ function quizCreator(){
       i.options.sort(() => Math.random() -0.5);
     //quiz card creation
     let div =document.createElement("div");
-    div.classList.add("container-mid");
+    div.classList.add("container_mid", "hide");
     //question number
-    couuntOfQuestions.innerHTML = 1+ "of"+ quizArray.length + "Question";
+    couuntOfQuestions.innerHTML = 1+ " of "+ quizArray.length + " Question ";
     //question
     let question_Div = document.createElement("p");
     question_Div.classList.add("question");
@@ -48,6 +71,54 @@ function quizCreator(){
     <button class="options-div" onclick="checker(this)">${i.options[1]}</button>
     <button class="options-div" onclick="checker(this)">${i.options[2]}</button>
     ';
-    
+    quizContainer.appendChild(div);
     }
 }
+//checher function to check if option is correct
+function checker(userOption){
+    let userSolution =userOption.innerText;
+    let question = document.getElementsByClassName("container_mid")
+    [questionCount];
+    let options = question.querySelectorAll("option-div");
+// if user clicked correct anser 
+    if(userSolution === quizArray[questionCount].correct)
+    {
+        userOption.classList.add("correct");
+        scoreCount++;
+    }
+    else{
+        userOption.classList.add("incorrect");
+        options.forEach((element) => {
+            if(element.innerHTML == quizArray[questionCount].correct){
+                element.classList.add("correct");
+            }
+        })
+    }
+
+}
+
+
+
+//initial setup 
+function initial(){
+    quizArray.innerHTML = "";
+    questionCount = 0,
+    scoreCount = 0,
+    count = 11;
+    clearInterval(countdown);
+    timerDisplay();
+    quizCreator();
+    quizContainer(questionCount);
+}
+
+//when star button is clicked
+startButton.addEventListener("click", () =>{
+    startScreen.classList.add("hide");
+    displayContainer.classList.remove("hide");
+    initial();
+})
+//hide quiz and display start screen 
+window.onload = () => {
+    startScreen.classList.remove("hide");
+    displayContainer.classList.add("hide");
+};

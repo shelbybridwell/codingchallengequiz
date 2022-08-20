@@ -18,20 +18,20 @@ body {
     align-items: center;
     justify-content: center;
 }
-button{
+.button{
     border: none;
     outline: none;
     cursor: pointer;
 }
-#start-button, 
-#restart {
+.start-button, 
+.restart {
     font-size: 1.3em;
     padding:0.5em 1.8em;
     border-radius: 0.2em;
 }
-#restart {
+.restart {
 }
-#display-container {
+.display-container {
     background-color: #ffffff;
     padding: 3.1em 1.8em;
     width: 80%;
@@ -60,7 +60,26 @@ button{
     justify-content: space-between;
     padding: 0.7em 1.8em;
 }
-#next-button {
+.questions {
+    margin-bottom: 1.25em ;
+    font-weight: 600 ;
+}
+.option-div {
+    font-weight: 0.9em;
+    width: 100%;
+    padding: 1em;
+    margin: 0.3em 0;
+    text-align: left;
+    outline: none;
+    background: transparent;
+    border: 1px solid #c0bfd2;
+    border-radius: 0.3em;
+}
+.options-div:disabled {
+    color: black;
+    cursor: not-allowed;
+}
+.next-button {
     font-size: 1em;
     margin-top: 1.5em;
     background-color: #0a69ed;
@@ -72,7 +91,14 @@ button{
 .hide {
     display: none;
 }
-#user-score { 
+.incorrect {
+    background-color: #ffdde0;
+    color: ;
+}
+.correct{
+
+}
+.user-score { 
     font-size: 1.5em;
     color: #ffffff;
 }
