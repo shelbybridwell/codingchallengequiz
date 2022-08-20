@@ -61,7 +61,7 @@ body {
     justify-content: space-between;
     padding: 0.7em 1.8em;
 }
-#questions {
+.questions {
     margin-bottom: 1.25em ;
     font-weight: 600 ;
 }
@@ -92,12 +92,12 @@ body {
 .hide {
     display: none;
 }
-.incorrect {
+#incorrect {
     background-color: #ffdde0;
     color:  red;
     border-color: red;
 }
-.correct{
+#correct{
     background-color: rgba(0, 128, 0, 0.284);
     color: rgb(125, 190, 28);
     border-color: rgb(185, 228, 121);

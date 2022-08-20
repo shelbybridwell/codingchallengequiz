@@ -32,7 +32,7 @@ correct:"B"
 },
 {
 id: "2", 
-question: "Question Three",
+question: "Question Three: ",
 options:["A","B","C", "D"], 
 correct:"A"
 },
@@ -44,12 +44,12 @@ restart.addEventListener("click", () => {
     scoreContainer.classList.add("hide");
 });
 //next button
-nextBtn.addEventListener("click", (displayNext = () =>
+nextBtn.addEventListener("click", (displayNext = () => 
    {
     // increment 
     questionCount += 1;
 
-    if(questionCount == quizArray.length){
+    if (questionCount == quizArray.length){
 //hide question and display score
         displayContainer.classList.add("hide");
         scoreContainer.classList.remove("hide");
@@ -66,7 +66,7 @@ nextBtn.addEventListener("click", (displayNext = () =>
                 timerDisplay();
          }
   
-}));
+});
 //timer
 const timerDisplay = () => {
     countdown = setInterval(() => {
