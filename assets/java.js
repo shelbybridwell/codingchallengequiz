@@ -65,8 +65,7 @@ nextBtn.addEventListener("click", (displayNext = () =>
                 clearInterval(countdown);
                 timerDisplay();
          }
-  
-});
+    });
 //timer
 const timerDisplay = () => {
     countdown = setInterval(() => {
